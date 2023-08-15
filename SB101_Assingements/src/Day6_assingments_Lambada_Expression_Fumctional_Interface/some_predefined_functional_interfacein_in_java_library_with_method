@@ -1,0 +1,20 @@
+
+Q1/ - Write down some predefined Functional interfaces in the java library at least 4
+interfaces, with their methods.
+
+1)Predicate<T>
+	Method:
+	
+	boolean test(T t): Evaluates a condition on the input object and returns a boolean result.
+2)Consumer<T>
+	Method:
+	
+	void accept(T t): Performs an operation on the input object and returns no result.
+3)Function<T, R>
+	Method:
+	
+	R apply(T t): Applies a function to the input object and returns the result of the function.
+4)Supplier<T>
+	Method:
+	
+	T get(): Supplies an object of type T.
