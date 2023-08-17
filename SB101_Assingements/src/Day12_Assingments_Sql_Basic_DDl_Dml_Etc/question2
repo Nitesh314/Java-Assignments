@@ -1,0 +1,9 @@
+2. Describe the tables which are already created.
+
+
+ans=>
+
+     desc tableName;
+     
+
+    

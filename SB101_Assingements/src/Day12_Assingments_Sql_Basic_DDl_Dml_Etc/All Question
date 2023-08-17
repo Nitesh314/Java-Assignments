@@ -1,0 +1,381 @@
+
+                          Day1- Basic SQL I
+                          
+
+4.Retrieve all the records from the table BORROW where amount in between
+2000 and 3000
+
+   ans=>
+        
+        select * from borrow WHERE amount BETWEEN 2000 AND 3000;
+        
+        +--------+---------+---------+--------+
+		| LOANNO | CNAME   | BNAME   | AMOUNT |
+		+--------+---------+---------+--------+
+		| 311    | SUNIL   | MGROAD  |   3000 |
+		| 321    | MADHURI | CHANDNI |   2000 |
+		+--------+---------+---------+--------+
+		
+
+	
+5. Retrieve the details from the table DEPOSIT	
+
+     SELECT * FROM DEPOSIT;
+     
+	+-------+---------+-----------+--------+------------+
+	| ACTNO | CNAME   | BNAME     | AMOUNT | ADATE      |
+	+-------+---------+-----------+--------+------------+
+	| 100   | ANIL    | VRCE      |   1000 | 1995-03-01 |
+	| 101   | SUNIL   | MGROAD    |   5000 | 1996-12-04 |
+	| 102   | RAHUL   | KAROLBAGH |   3500 | 1995-11-17 |
+	| 103   | MADHURI | CHANDNI   |   1200 | 1995-12-17 |
+	| 104   | PRAMOD  | MGROAD    |   3000 | 1996-03-27 |
+	| 105   | SANDIP  | KAROLBAGH |   2000 | 1996-03-31 |
+	+-------+---------+-----------+--------+------------+
+	
+	
+
+6. Retrieve the customer name, account no of DEPOSIT;
+  	
+	 SELECT CNAME,ACTNO FROM DEPOSIT;
+		+---------+-------+
+		| CNAME   | ACTNO |
+		+---------+-------+
+		| ANIL    | 100   |
+		| SUNIL   | 101   |
+		| RAHUL   | 102   |
+		| MADHURI | 103   |
+		| PRAMOD  | 104   |
+		| SANDIP  | 105   |
+		+---------+-------+
+		
+7. Retrieve the name of the customer living in NAGPUR
+
+		
+		SELECT CNAME FROM CUSTOMER WHERE CITY='NAGPUR';
+			+---------+
+			| CNAME   |
+			+---------+
+			| MADHURI |
+			| PRAMOD  |
+			+---------+
+			
+
+8. Retrieve the name of the customers who opened account after 17-NOV-95.
+
+			
+		 SELECT CNAME FROM DEPOSIT WHERE ADATE > '1995-11-17';
+						+---------+
+						| CNAME   |
+						+---------+
+						| SUNIL   |
+						| MADHURI |
+						| PRAMOD  |
+						| SANDIP  |
+						+---------+	
+
+
+9. Retrieve the account number and amount of the customer having account opened between
+01-12-95 and 01-06.96.
+
+
+	 SELECT ACTNO,AMOUNT FROM DEPOSIT WHERE ADATE BETWEEN '1995-12-01' AND
+     '1996-06-01';
+					+-------+--------+
+					| ACTNO | AMOUNT |
+					+-------+--------+
+					| 103   |   1200 |
+					| 104   |   3000 |
+					| 105   |   2000 |
+					+-------+--------+
+	
+	
+10. Retrieve all the records from the table DEPOSIT where CNAME begins
+with C.
+
+	 SELECT * FROM DEPOSIT WHERE CNAME LIKE'C%';
+		Empty set (0.00 sec)
+	
+11. Retrieve all the records from the table BORROW where 2nd character of
+CNAME is U.
+	
+	
+	 SELECT * FROM BORROW WHERE CNAME LIKE'_U%';
+			+--------+-------+--------+--------+
+			| LOANNO | CNAME | BNAME  | AMOUNT |
+			+--------+-------+--------+--------+
+			| 311    | SUNIL | MGROAD |   3000 |
+			+--------+-------+--------+--------+
+	
+	
+12. Retrieve all the records from the table DEPOSIT where branch name is
+CHANDNI or MGROAD.
+
+	SELECT * FROM DEPOSIT WHERE BNAME='CHANDNI' OR BNAME='MGROAD';
+		+-------+---------+---------+--------+------------+
+		| ACTNO | CNAME   | BNAME   | AMOUNT | ADATE      |
+		+-------+---------+---------+--------+------------+
+		| 101   | SUNIL   | MGROAD  |   5000 | 1996-12-04 |
+		| 103   | MADHURI | CHANDNI |   1200 | 1995-12-17 |
+		| 104   | PRAMOD  | MGROAD  |   3000 | 1996-03-27 |
+		+-------+---------+---------+--------+------------+
+		
+13. Retrieve all the records from the table DEPOSIT where branch name is not
+CHANDNI or MGROAD.
+		
+		 SELECT * FROM DEPOSIT WHERE BNAME!='CHANDNI' AND BNAME!='MGROAD';
+				+-------+--------+-----------+--------+------------+
+				| ACTNO | CNAME  | BNAME     | AMOUNT | ADATE      |
+				+-------+--------+-----------+--------+------------+
+				| 100   | ANIL   | VRCE      |   1000 | 1995-03-01 |
+				| 102   | RAHUL  | KAROLBAGH |   3500 | 1995-11-17 |
+				| 105   | SANDIP | KAROLBAGH |   2000 | 1996-03-31 |
+				+-------+--------+-----------+--------+------------+
+					
+	
+	
+14. Retrieve all the records from DEPOSIT where amount > 1000 and arrange the customer name in
+ascending order.
+
+	 SELECT * FROM DEPOSIT WHERE AMOUNT>1000 ORDER BY CNAME;
+			+-------+---------+-----------+--------+------------+
+			| ACTNO | CNAME   | BNAME     | AMOUNT | ADATE      |
+			+-------+---------+-----------+--------+------------+
+			| 103   | MADHURI | CHANDNI   |   1200 | 1995-12-17 |
+			| 104   | PRAMOD  | MGROAD    |   3000 | 1996-03-27 |
+			| 102   | RAHUL   | KAROLBAGH |   3500 | 1995-11-17 |
+			| 105   | SANDIP  | KAROLBAGH |   2000 | 1996-03-31 |
+			| 101   | SUNIL   | MGROAD    |   5000 | 1996-12-04 |
+			+-------+---------+-----------+--------+------------+
+			
+			
+			
+15. Retrieve all the records from DEPOSIT where amount > 1000 and arrange the customer name in
+descending order.			
+			
+			 SELECT * FROM DEPOSIT WHERE AMOUNT>1000 ORDER BY CNAME DESC;
+						+-------+---------+-----------+--------+------------+
+						| ACTNO | CNAME   | BNAME     | AMOUNT | ADATE      |
+						+-------+---------+-----------+--------+------------+
+						| 101   | SUNIL   | MGROAD    |   5000 | 1996-12-04 |
+						| 105   | SANDIP  | KAROLBAGH |   2000 | 1996-03-31 |
+						| 102   | RAHUL   | KAROLBAGH |   3500 | 1995-11-17 |
+						| 104   | PRAMOD  | MGROAD    |   3000 | 1996-03-27 |
+						| 103   | MADHURI | CHANDNI   |   1200 | 1995-12-17 |
+						+-------+---------+-----------+--------+------------+
+							
+
+
+16. Retrieve customer details from BORROW table where the third character of
+the customer name is either ‘A’ or ‘D’							
+	
+	
+	 SELECT * FROM BORROW WHERE CNAME LIKE'__A%' OR CNAME LIKE'__D%';
+			+--------+---------+---------+--------+
+			| LOANNO | CNAME   | BNAME   | AMOUNT |
+			+--------+---------+---------+--------+
+			| 321    | MADHURI | CHANDNI |   2000 |
+			| 375    | PRAMOD  | MGROAD  |   8000 |
+			+--------+---------+---------+--------+
+	
+	
+	
+17. Retrieve all the records from the table BORROW where amount is not
+between 2000 and 8000.
+
+	 SELECT * FROM BORROW WHERE AMOUNT NOT BETWEEN 2000 AND 8000;
+				+--------+-------+-------+--------+
+				| LOANNO | CNAME | BNAME | AMOUNT |
+				+--------+-------+-------+--------+
+				| 201    | ANIL  | VRCE  |   1000 |
+				+--------+-------+-------+--------+
+				
+				
+18. Find out the unique records from the table DEPOSIT
+	
+	 SELECT DISTINCT * FROM DEPOSIT;
+		+-------+---------+-----------+--------+------------+
+		| ACTNO | CNAME   | BNAME     | AMOUNT | ADATE      |
+		+-------+---------+-----------+--------+------------+
+		| 100   | ANIL    | VRCE      |   1000 | 1995-03-01 |
+		| 101   | SUNIL   | MGROAD    |   5000 | 1996-12-04 |
+		| 102   | RAHUL   | KAROLBAGH |   3500 | 1995-11-17 |
+		| 103   | MADHURI | CHANDNI   |   1200 | 1995-12-17 |
+		| 104   | PRAMOD  | MGROAD    |   3000 | 1996-03-27 |
+		| 105   | SANDIP  | KAROLBAGH |   2000 | 1996-03-31 |
+		+-------+---------+-----------+--------+------------+
+	
+	
+	
+	
+19. Update the amount of all depositors in deposit table by giving them 10% interest (i.e.
+amount=amount * 0.1) where branch is VRCE.	
+	
+	 UPDATE DEPOSIT SET AMOUNT=AMOUNT*0.1 WHERE BNAME='VRCE';
+			Query OK, 1 row affected (0.03 sec)
+			Rows matched: 1  Changed: 1  Warnings: 0
+	
+	
+	   SELECT * FROM DEPOSIT;
+		+-------+---------+-----------+--------+------------+
+		| ACTNO | CNAME   | BNAME     | AMOUNT | ADATE      |
+		+-------+---------+-----------+--------+------------+
+		| 100   | ANIL    | VRCE      |    100 | 1995-03-01 |
+		| 101   | SUNIL   | MGROAD    |   5000 | 1996-12-04 |
+		| 102   | RAHUL   | KAROLBAGH |   3500 | 1995-11-17 |
+		| 103   | MADHURI | CHANDNI   |   1200 | 1995-12-17 |
+		| 104   | PRAMOD  | MGROAD    |   3000 | 1996-03-27 |
+		| 105   | SANDIP  | KAROLBAGH |   2000 | 1996-03-31 |
+		+-------+---------+-----------+--------+------------+
+	
+	
+
+
+20. Update the amount of all depositors in deposit table by giving them 10% interest where
+branch is VRCE and customer name ANIL	
+	
+	 UPDATE DEPOSIT SET AMOUNT=AMOUNT*0.1 WHERE BNAME='VRCE' AND CNAME='ANIL';
+		Query OK, 1 row affected (0.01 sec)
+		Rows matched: 1  Changed: 1  Warnings: 0
+			
+	
+	     SELECT * FROM DEPOSIT;
+		+-------+---------+-----------+--------+------------+
+		| ACTNO | CNAME   | BNAME     | AMOUNT | ADATE      |
+		+-------+---------+-----------+--------+------------+
+		| 100   | ANIL    | VRCE      |     10 | 1995-03-01 |
+		| 101   | SUNIL   | MGROAD    |   5000 | 1996-12-04 |
+		| 102   | RAHUL   | KAROLBAGH |   3500 | 1995-11-17 |
+		| 103   | MADHURI | CHANDNI   |   1200 | 1995-12-17 |
+		| 104   | PRAMOD  | MGROAD    |   3000 | 1996-03-27 |
+		| 105   | SANDIP  | KAROLBAGH |   2000 | 1996-03-31 |
+		+-------+---------+-----------+--------+------------+
+	
+	                        Basic SQL II
+	                        
+	
+	Create table STUIDENT and insert the following data :-
+		FIELD DATA TYPE
+		NAME VARCHAR(20)
+		ROLLNO INT
+		BRANCH VARCHAR2(20)
+		CITY VARCHAR2(20)
+		
+		
+  ans=>
+      
+        create table STUDENT(
+        NAME VARCHAR(20),
+        ROLLNO INT,
+        BRANCH VARCHAR(20),
+        CITY VARCHAR(20)
+        );
+        
+        
+        insert into STUDENT(NAME,ROLLNO,BRANCH,CITY) VALUES
+        ('VIJAY',150,'CSE','CHENNAI'),
+        ('SITA',202,'ETC','KOLKATA'),
+        ('RAVI',300,'EEE','DELHI'),
+        ('BASU',165,'ETC','CHENNAI'),
+        ('RASMI',107,'ETC','RKL'),
+        ('KARAN',111,'CSE','CTC'),
+        ('REKHA',117,'BME','BBSR');
+		
+	                        
+1. Count the number of students of each department.
+        
+        select branch, count(name) from student group by branch;
+				+--------+-------------+
+				| branch | count(name) |
+				+--------+-------------+
+				| CSE    |           2 |
+				| ETC    |           3 |
+				| EEE    |           1 |
+				| BME    |           1 |
+				+--------+-------------+
+
+
+2. Count the number of students of each department
+    where the department name starts with ‘E’.
+
+		select branch,count(name) from student where branch LIKE'E%' GROUP BY branch;
+				+--------+-------------+
+				| branch | count(name) |
+				+--------+-------------+
+				| ETC    |           3 |
+				| EEE    |           1 |
+				+--------+-------------+
+
+
+
+3. Add a field called MARKS to the table STUDENT which
+   can hold a number upto 8 digit length.
+       
+        ALTER TABLE STUDENT ADD COLUMN MARKS INT(8);
+        
+			Query OK, 0 rows affected, 1 warning (0.03 sec)
+			Records: 0  Duplicates: 0  Warnings: 1
+   
+   
+4. Modify the field :”NAME” of the table STUDENT to 
+   hold a maximum of 25 character.
+        
+        
+         ALTER TABLE STUDENT MODIFY COLUMN NAME VARCHAR(25);
+				Query OK, 0 rows affected (0.01 sec)
+   
+   
+5. Delete all rows from the table STUDENT where
+   branch is ETC.
+   
+      DELETE FROM student WHERE BRANCH='ETC';
+         Query OK, 3 rows affected (0.01 sec)
+   
+   
+6. Rename the table STUDENT to STUDINFORMATION.
+       
+        ALTER TABLE STUDENT RENAME STUDENTINFORMATION;
+             Query OK, 0 rows affected (0.02 sec)
+       
+
+7. Delete all the data part from the table STUDENT.
+      
+       DELETE from STUDENTINFORMATION;
+         Query OK, 4 rows affected (0.01 sec)    
+      
+
+8. Destroy the table STUDENT.
+	
+	 DROP TABLE studentinformation;
+         Query OK, 0 rows affected (0.01 sec)	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

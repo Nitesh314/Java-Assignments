@@ -1,0 +1,73 @@
+1. Create the following table according to the following information
+
+i) Table name- DEPOSIT
+	FIELD NAME DATA TYPE SIZE
+	ACTNO VARCHAR 25
+	CNAME VARCHAR 20
+	BNAME VARCHAR 20
+	AMOUNT INT
+	ADATE DATE
+	
+	
+Ans=>
+      
+      create table DEPOSIT
+      (
+	      ACTNO VARCHAR(25),
+	      CNAME VARCHAR(20),
+	      BNAME VARCHAR(20),
+	      AMOUNT INT,
+	      ADATE DATE
+      );	
+      
+
+ii) Table name-BRANCH
+	FIELD NAME DATA TYPE SIZE
+	BNAME VARCHAR 20
+	CITY VARCHAR 20   
+	
+	
+	create table BRANCH(
+	BNAME varchar(20),
+	CITY varchar(20)
+	);
+	
+
+iii) Table name-CUSTOMER
+		FIELD NAME DATA TYPE SIZE
+		CNAME VARCHAR2 20
+		CITY VARCHAR2 20
+		
+		
+	   create table CUSTOMER(
+	   CNAME VARCHAR(20),
+	   CITY VARCHAR(20)
+	   );
+	   
+
+v) Table name-BORROW
+	FIELD NAME DATA TYPE SIZE
+	LOANNO VARCHAR 5
+	CNAME VARCHAR 20
+	BNAME VARCHAR 20
+	AMOUNT INT	 
+	
+	
+	create table BORROW(
+	LOANNO VARCHAR(5),
+	CNAME VARCHAR(20),
+	BNAME VARCHAR(20),
+	AMOUNT INT
+	);
+	
+	
+	
+	  
+	
+	
+	
+	
+	   
+      
+	
+	

@@ -1,0 +1,58 @@
+3. Insert the data as for the following
+
+
+  Insert the data inside DEPOSIT table;
+  
+ 
+ans=>
+
+     insert into DEPOSIT(ACTNO,CNAME,BNAME,AMOUNT,ADATE) 
+     VALUES
+      (100,'ANIL','VRCE',1000.00,'1995-03-01'),
+      (101,'SUNIL','MGROAD',5000.00,'1996-12-04'),
+      (102,'RAHUL','KAROLBAGH',3500.00,'1995-11-17'),
+      (103,'MADHURI','CHANDNI',1200.00,'1995-12-17'),
+      (104,'PRAMOD','MGROAD',3000.00,'1996-03-27'),
+      (105,'SANDIP','KAROLBAGH',2000.00,'1996-03-31');
+
+      
+      
+  ans =>
+  
+         insert into BRANCH(BNAME,CITY)
+         VALUES
+         ('VRCE','NAGPUR'),
+         ('KAROLBAGH','DELHI'),
+         ('CHANDNI','DELHI'),
+         ('MGROAD','BANGALORE');
+         
+         
+   ANS=>
+         
+         insert into CUSTOMER(CNAME,CITY)
+         VALUES
+         ('ANIL','CALCUTA'),
+         ('RAHUL','BARODA'),
+         ('MADHURI','NAGPUR'),
+         ('PRAMOD','NAGPUR'),
+         ('SUNIL','DELHI');
+                 
+      
+   ANS=>
+         
+         insert into BORROW(LOANNO,CNAME,BNAME,AMOUNT)
+         VALUES
+         (201,'ANIL','VRCE',1000.00),
+         (206,'RAHUL','KAROLBAGH',5000.00),
+         (311,'SUNIL','MGROAD',3000.00),
+         (321,'MADHURI','CHANDNI',2000.00),
+         (375,'PRAMOD','MGROAD',8000.00);  
+   
+   
+   
+   
+   
+   
+   
+         
+      
