@@ -1,0 +1,27 @@
+. Create the table PROGRAMMER with the given information using SQL CREATE TABLE commands:
+
+   CREATE TABLE PROGRAMMER(
+   EmpNo INT(5) Unique,
+   LastName varchar(30),
+   FirstName varchar(30),
+   Hiredate Date,
+   ProjId varchar(15),
+   Language varchar(15),
+   TaskNo TINYINT,
+   Privilege varchar(25)
+   );
+   
+   
+   insert into PROGRAMMER(EmpNo,LastName,FirstName,Hiredate,ProjId,Language,TaskNo,Privilege)
+   values
+   (201,'Gupta','Saurav','1995-1-1','NPR','VB',52,'Secret'),
+   (390,'Ghosh','Pinky','1993-1-5','KCW','JAVA',11,'TopSecret'),
+   (789,'Agarwal','Praveen','1998-8-3','RNC','VB',11,'Secret'),
+   (134,'Chaudhury','Supriyo','1995-7-15','TIPPS','C++',52,'Secret'),
+   (896,'Jha','Ranjit','1997-6-15','KCW','JAVA',10,'TopSecret'),
+   (345,'John','Peter','1999-11-15','TIPPS','JAVA',52,null),
+   (563,'Anderson','Andy','1994-8-15','NITTS','C++',89,'Confidential');
+   
+   
+   
+  
