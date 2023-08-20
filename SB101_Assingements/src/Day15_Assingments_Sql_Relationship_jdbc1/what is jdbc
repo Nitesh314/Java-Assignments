@@ -1,0 +1,14 @@
+Q1/- What is JDBC, Write a note on JDBC driver software
+
+ans=> 
+     JDBC is a technology that is establish the connection of 
+     any type of java application to any type of DATA BASE s/w;
+     in a standard manner;
+     
+     JDBC technology is given by SON-MicroSystem;
+     
+     JDBC driver s/w is the implementation of the jdbc specification
+     which will act as a translator s/w to communicate our java application 
+     with the data base s/w 
+     
+     
