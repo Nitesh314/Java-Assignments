@@ -1,0 +1,48 @@
+Q2/- Consider the following tables:
+ 
+ Department:
+	did
+	dname
+	location
+
+
+Employee:
+	empId
+	ename
+	address
+	mobile
+	deptid
+	
+	
+	
+	//creating tables 
+	
+	
+	
+	create table Department(
+	did int Primary key,
+	dname varchar(12),
+	location varchar(25)
+	);
+	
+	
+	//we Establish one-many relation ship
+	among with deptId to did;
+	
+	
+	create table Employee(
+	empId int Primary key,
+	ename varchar(12),
+	address varchar(25),
+	mobile varchar(10),
+	deptId int ,
+	Foreign key(deptId) references Department(did)
+	);
+	
+	
+
+	
+	
+	
+	
+	

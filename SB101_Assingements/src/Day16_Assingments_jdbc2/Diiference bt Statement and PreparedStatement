@@ -1,0 +1,24 @@
+Q1/- What is the Difference between the Statement and the PreparedStatement?
+
+
+Both Statement and PreparedStatement can be used to execute SQL queries
+These interfaces look very similar.
+
+Statement
+        1- it is used to execute string-based SQL queries;
+        2-when we use Statement(I) object to perform any DataBase operation
+           then Statement object has the following limitations;
+           i-Complexities to concatenate dynamic variables;
+           ii- whenever we perform some DataBase problem using
+              Statement object the database engine will perform 
+              following task every time to execute that query
+              i-query compilation;
+              ii-query plan-generation;
+              iii-query optimization;
+                         
+  
+  
+PreparedStatement-
+                 i-using Ps we perform parameterized SQL Q=queries;
+                 ii-using ps we degrade the performance;
+                                
