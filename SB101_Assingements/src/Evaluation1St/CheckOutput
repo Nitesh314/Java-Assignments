@@ -1,0 +1,28 @@
+Question 4: What will be the output of below code and why?
+
+public class CheckOutput {
+  public static void main(String args[]){
+		try
+		{
+		   System.out.print("A");
+		   int num = 99/0;
+		   System.out.print("B");
+		}catch(ArithmeticException ex){
+		   System.out.print("C");
+		}catch(Exception ex){
+		  System.out.print("D");
+		}
+		System.out.print("E");
+   }
+}
+
+
+
+******************************
+
+  here the output of the above code is ACE;
+  
+  because whenn the jvm start to compile the code first line no7 done after that it gon to line no8 here it get exception then
+  the jvm compiler check weather the exception handeld or not but it is handeled so it go to check block and get priority to Arithamatic Exception 
+  and get the message in arithamtic check bolock after it go to last line of the code and execute the line and get normal trmination of the code ;
+  
