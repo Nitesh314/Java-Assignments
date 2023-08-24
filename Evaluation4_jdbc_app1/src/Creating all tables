@@ -1,0 +1,222 @@
+
+Student:
+	roll: int primary key
+	name: varchar(12) not null,
+	address: varchar(12) not null,
+	mobile: varchar(10) not null
+
+Course:
+	cid: int primary key,
+	cname: varchar(12) not null,
+	fee: int not null,
+    duration: varchar(12) not null
+
+
+● Establish Many-to-Many relationships between the Student and the Course
+table
+
+
+   Create table Student(
+    roll int primary key,
+	name varchar(12) not null,
+	address varchar(12) not null,
+	mobile varchar(10) not null
+	);
+	
+	
+Create table Course(
+	cid int primary key,
+	cname varchar(12) not null,
+	fee int not null,
+    duration varchar(12) not null
+    );
+    
+    
+ //establish many to many relationship we create one table called Studetn_Course;
+ 
+ 
+   Create table Student_Course(
+        cs_roll int ,
+        cs_cid int,
+        Foreign key(cs_roll) references Student(roll),
+        Foreign key(cs_cid) references Course(cid)
+        );
+         
+	
+Q2/- Consider the following tables:
+
+● Establish a One-to-Many relationship between the Department and Employee table
+
+
+Department:
+	did: int primary key,
+	dname: varchar(12) not null,
+	location: varchar(12) not null
+	
+Employee:
+	empId: int primary key,
+	ename: varchar(12) not null,
+	address: varchar(12) not null,
+	mobile: varchar(12) not null,
+	salary: int not null,
+	deptId: int
+	
+	
+	
+  Create table Department(
+ 	did int primary key,
+	dname varchar(12) not null,
+	location varchar(12) not null
+	);
+	
+	
+	
+Create Table Employee(	
+    empId int primary key,
+	ename varchar(12) not null,
+	address varchar(12) not null,
+	mobile varchar(12) not null,
+	salary int not null,
+	deptId int,
+	Foreign key(deptId) references Department(did)
+	);
+
+
+
+
+● Write a SQL query to get the total salary of employees, department-wise.
+
+   Select d.dname,SUM(e.salary) from employee e INNER JOIN department d ON d.did=e.deptid group by d.dname;
+			+-----------+---------------+
+			| dname     | SUM(e.salary) |
+			+-----------+---------------+
+			| Account   |         95000 |
+			| Sales     |        161000 |
+			| Marketing |         80000 |
+			| HR        |        165000 |
+			+-----------+---------------+
+   
+   //without joins
+   
+   select d.dname, SUM(e.salary) from employee e, department d where d.did=e.deptid group by d.dname;
++-----------+---------------+
+| dname     | SUM(e.salary) |
++-----------+---------------+
+| Account   |         95000 |
+| Sales     |        161000 |
+| Marketing |         80000 |
+| HR        |        165000 |
++-----------+---------------+
+
+
+
+
+
+● Write a SQL query to get all the employee details who enrolled in the Sales
+  department.
+
+
+select * from employee e INNER JOIN department d ON e.deptid=d.did AND d.dname='sales';
++-------+---------+---------+------------+--------+--------+-----+-------+----------+
+| empId | ename   | address | mobile     | salary | deptId | did | dname | location |
++-------+---------+---------+------------+--------+--------+-----+-------+----------+
+|     3 | jadu    | nsp     | 7894561234 |  45500 |    102 | 102 | Sales | Mumbai   |
+|     4 | Sandeep | gbk     | 7710817246 |  55500 |    102 | 102 | Sales | Mumbai   |
+|     5 | Ankit   | vkc     | 7894561235 |  60000 |    102 | 102 | Sales | Mumbai   |
++-------+---------+---------+------------+--------+--------+-----+-------+----------+
+
+//without joins
+
+ select * from employee e,department d where e.deptid=d.did AND d.dname='sales';
++-------+---------+---------+------------+--------+--------+-----+-------+----------+
+| empId | ename   | address | mobile     | salary | deptId | did | dname | location |
++-------+---------+---------+------------+--------+--------+-----+-------+----------+
+|     3 | jadu    | nsp     | 7894561234 |  45500 |    102 | 102 | Sales | Mumbai   |
+|     4 | Sandeep | gbk     | 7710817246 |  55500 |    102 | 102 | Sales | Mumbai   |
+|     5 | Ankit   | vkc     | 7894561235 |  60000 |    102 | 102 | Sales | Mumbai   |
++-------+---------+---------+------------+--------+--------+-----+-------+----------+
+
+
+
+
+
+
+
+
+
+
+● Write a SQL query to get the Department details for an employee based on the
+  empId.
+
+select e.empid,e.ename,e.salary,d.did,d.dname,d.location from employee e,department d where e.deptid=d.did AND e.empid='3';
++-------+-------+--------+-----+-------+----------+
+| empid | ename | salary | did | dname | location |
++-------+-------+--------+-----+-------+----------+
+|     3 | jadu  |  45500 | 102 | Sales | Mumbai   |
++-------+-------+--------+-----+-------+----------+
+
+
+● Write a SQL query to get the second highest salary paid employee from the
+Employee table
+	
+	
+	   Select salary AS 2Max_Salary,ename AS Employee_Name
+	   FROM
+	   employee
+	   WHERE 
+	   salary=(select MAX(salary)
+	   FROM
+	   employee 
+	   WHERE
+	   salary<(select MAX(salary)
+       from employee));
+	+------------+---------------+
+	| 2Max_Salary | Employee_Name |
+	+------------+---------------+
+	|      75000 | Pooja         |
+	+------------+---------------+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
