@@ -1,0 +1,15 @@
+ Explain difference between PriorityQueue() and LinkedList().
+ 
+ 
+In Java, PriorityQueue and LinkedList are specific implementations of data structures with different purposes and characteristics:
+
+PriorityQueue:
+
+PriorityQueue in Java is a class that implements a priority queue data structure. It is used to store elements with associated priorities, and the elements are ordered based on their priority in either ascending or descending order.
+The key feature of a PriorityQueue is that it allows you to efficiently add elements while maintaining the order based on their priority. The element with the highest (or lowest, depending on the comparator or natural ordering) priority will be at the front and dequeued first.
+
+LinkedList:
+
+LinkedList in Java is a class that implements a doubly-linked list data structure. It is a linear collection of elements, where each element is contained within a node, and each node has references to the previous and next nodes in the sequence.
+Unlike arrays or other data structures with contiguous memory allocation, a LinkedList can efficiently handle insertions and deletions at any position within the list because it only requires updating the references of neighboring nodes.
+However, accessing an element in the middle of a LinkedList takes linear time since you may need to traverse through the nodes from the beginning of the list to find the desired element.
